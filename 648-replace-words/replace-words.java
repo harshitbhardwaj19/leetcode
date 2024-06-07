@@ -6,13 +6,16 @@ class Solution {
         for (String word : dictionary) {
             buildTrie(root, word, 0);
         }
-        String sol = "";
+        StringBuilder sol = new StringBuilder();
         String[] strArr = sentence.split(" ");
         for(String word : strArr){
             String rootWord = getRootWord(root, word, 0);
-            sol = sol + " " + rootWord;
+            if (sol.length() > 0) {
+                sol.append(" ");
+            }
+            sol.append(rootWord);
         }
-        return sol.trim();
+        return sol.toString();
     }
 
     public String getRootWord(Trie root, String word, int index) {
