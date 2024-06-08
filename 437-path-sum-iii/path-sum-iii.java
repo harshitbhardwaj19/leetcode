@@ -17,7 +17,7 @@ class Solution {
     public int pathSum(TreeNode root, int targetSum) {
         Map<Long, Integer> map = new HashMap<>();
         map.put((long) 0, 1);
-        return pathSum(root, targetSum, (long) 0, map);
+        return pathSum(root, targetSum, 0, map);
     }
 
     public int pathSum(TreeNode root, int targetSum, long sum, Map<Long, Integer> map) {
