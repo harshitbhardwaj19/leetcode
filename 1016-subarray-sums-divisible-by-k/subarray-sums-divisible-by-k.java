@@ -4,18 +4,19 @@ class Solution {
         map.put(0, 1);
         int sum = 0;
         int count = 0;
-        
         for (int num : nums) {
             sum += num;
-            sum = (sum % k + k) % k; 
-            
+            sum = (sum % k + k) % k;
+
             if (map.containsKey(sum)) {
-                count += map.get(sum);
+                int current = map.get(sum);
+                count += current;
+                map.put(sum, current + 1);
+            } else {
+                map.put(sum, 1);
             }
-            map.put(sum, map.getOrDefault(sum, 0) + 1);
 
         }
-        
         return count;
     }
 }
