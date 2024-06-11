@@ -9,30 +9,30 @@ class Solution {
 
         int rooms[] = new int[n];
 
-        PriorityQueue<long[]> pq = new PriorityQueue<>((a, b) -> {
+        PriorityQueue<int []> pq = new PriorityQueue<>((a, b) -> {
             if (a[1] == b[1]) {
                 return (int) (a[2] - b[2]);
             }
             return (int) (a[1] - b[1]);
         });
         for (int i = 0; i < meetings.length; i++) {
-            long start = meetings[i][0];
-            long len = meetings[i][1] - meetings[i][0];
+            int start = meetings[i][0];
+            int len = meetings[i][1] - meetings[i][0];
 
             while (pq.size() > 0 && start >= pq.peek()[1]) {
-                long prevMeeting[] = pq.poll();
+                int prevMeeting[] = pq.poll();
                 int prevRoom = (int) prevMeeting[2];
                 rooms[prevRoom] = -1 * rooms[prevRoom]; // negative means available
             }
 
             if (pq.size() >= n) {
-                long prevMeeting[] = pq.poll();
+                int prevMeeting[] = pq.poll();
                 int prevRoom = (int) prevMeeting[2];
                 rooms[prevRoom] = -1 * rooms[prevRoom]; // negative means available
                 start = prevMeeting[1] > start ? prevMeeting[1] : start;
             }
             int room = getRoom(rooms);
-            pq.add(new long[] { start, start + len, room });
+            pq.add(new int[] { start, start + len, room });
             rooms[room] = Math.abs(rooms[room]) + 1;
         }
 
