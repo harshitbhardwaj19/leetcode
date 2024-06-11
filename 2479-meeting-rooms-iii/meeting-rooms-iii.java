@@ -11,26 +11,23 @@ class Solution {
 
         PriorityQueue<int []> pq = new PriorityQueue<>((a, b) -> {
             if (a[1] == b[1]) {
-                return (int) (a[2] - b[2]);
+                return a[2] - b[2];
             }
-            return (int) (a[1] - b[1]);
+            return a[1] - b[1];
         });
+
         for (int i = 0; i < meetings.length; i++) {
+            int max = 0;
             int start = meetings[i][0];
             int len = meetings[i][1] - meetings[i][0];
 
-            while (pq.size() > 0 && start >= pq.peek()[1]) {
+            while (pq.size() >= n || (pq.size() > 0 && start >= pq.peek()[1])) {
                 int prevMeeting[] = pq.poll();
-                int prevRoom = (int) prevMeeting[2];
+                max = Math.max(max, prevMeeting[1]);
+                int prevRoom = prevMeeting[2];
                 rooms[prevRoom] = -1 * rooms[prevRoom]; // negative means available
             }
-
-            if (pq.size() >= n) {
-                int prevMeeting[] = pq.poll();
-                int prevRoom = (int) prevMeeting[2];
-                rooms[prevRoom] = -1 * rooms[prevRoom]; // negative means available
-                start = prevMeeting[1] > start ? prevMeeting[1] : start;
-            }
+            start = Math.max(max, start);
             int room = getRoom(rooms);
             pq.add(new int[] { start, start + len, room });
             rooms[room] = Math.abs(rooms[room]) + 1;
