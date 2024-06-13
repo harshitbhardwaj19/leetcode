@@ -10,6 +10,12 @@ class Solution {
                 ans.add(num);
             }
         }
-        return ans.stream().mapToInt(Integer::intValue).toArray();
+
+        int i = 0;
+        int[] arr = new int[ans.size()];
+        for (Integer value : ans) {
+            arr[i++] = value;
+        }
+        return arr;
     }
 }
