@@ -16,10 +16,8 @@ class Solution {
         int finalProfit = 0;
         while (pq.size() != 0 && j < worker.length) {
             int work[] = pq.poll();
-            System.out.println("Processing job from priority queue: profit=" + work[0] + ", difficulty=" + work[1]);
             while (j < worker.length && work[1] <= worker[j]) {
                 finalProfit += work[0];
-                System.out.println("Worker with ability " + worker[j] + " assigned job with profit " + work[0]);
                 j++;
             }
         }
