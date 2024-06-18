@@ -12,10 +12,8 @@ class Solution {
         int best = 0;
         for (int work : worker) {
             while (pq.size() != 0 && work >= pq.peek()[1]) {
-                // System.out.println("JOB"+ +" , best : "+best)
                 best = Math.max(best, pq.poll()[0]);
             }
-            // System.out.println("Worker : "+work +" , best : "+best)
             finalProfit += best;
         }
 
