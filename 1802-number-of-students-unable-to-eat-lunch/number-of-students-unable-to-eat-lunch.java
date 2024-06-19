@@ -1,22 +1,26 @@
 class Solution {
     public int countStudents(int[] students, int[] sandwiches) {
-        Queue<Integer> q = new LinkedList<>();
-        for(int num : students){
-            q.add(num);
+        int ones = 0; //count of students who prefer type1
+        int zeros = 0; //count of students who prefer type0
+		
+        for(int stud : students){
+            if(stud == 0) zeros++;
+            else ones++;
         }
-        int j = 0;
-        while(q.size()!=0){
-            int size = q.size();
-            for(int i=0; i<size; i++){
-                int choice = q.poll();
-                if(choice == sandwiches[j]){
-                    j++;
-                } else {
-                    q.add(choice);
+        
+        // for each sandwich in sandwiches
+        for(int sandwich : sandwiches){
+            if(sandwich == 0){  // if sandwich is of type0
+                if(zeros == 0){ // if no student want a type0 sandwich
+                    return ones;
                 }
+                zeros--;
             }
-            if(q.size()==size){
-                return size;
+            else{  // if sandwich is of type1
+                if(ones == 0){  // if no student want a type1 sandwich 
+                    return zeros;
+                }
+                ones--;
             }
         }
         return 0;
