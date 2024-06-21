@@ -21,7 +21,6 @@ class Solution {
 
         int total = 0;
         for (int i = 0; i < grumpy.length; i++) {
-            System.out.print(grumpy[i]+"  ");
             if(grumpy[i]==0){
                 total+=customers[i];
             }
