@@ -23,13 +23,9 @@ class Solution {
         if(root==null){
             return sum;
         }
-        // System.out.println("###############");
-        // System.out.println(root.val);
         int rightSum = dfs(root.right, sum);
-        // System.out.println(rightSum);
         root.val = root.val+rightSum;
         int leftSum = dfs(root.left, root.val);
-        // System.out.println(leftSum);
         return leftSum;
     }
 }
