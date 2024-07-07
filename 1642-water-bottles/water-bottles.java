@@ -7,7 +7,6 @@ class Solution {
             filled = empty/numExchange;
             sum+=filled;
             empty = filled + (empty - numExchange * filled);
-            System.out.println(empty + "  "+sum);
         }
         return sum;
     }
