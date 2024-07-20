@@ -22,19 +22,12 @@ class Solution {
     }
 
     public boolean isPossible(int index, int matrix[][], int[] rowSum, int[] colSum) {
-        // System.out.println(matrix);
-        // System.out.println(rowSum);
-        // System.out.println(colSum);
         int row = index / n;
         int col = index % n;
 
-        // System.out.println(index+"  "+row+"  "+col);
         if(index >= m*n){
             return true;
         }
-        // if(row>=m || col>=n){
-        //     return false;
-        // }
 
         if (rowSum[row] < 0 || colSum[col] < 0) {
             return false;
