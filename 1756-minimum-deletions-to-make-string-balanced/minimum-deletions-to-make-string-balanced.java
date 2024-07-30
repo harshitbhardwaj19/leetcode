@@ -14,11 +14,6 @@ class Solution {
             }
         }
 
-        // for (int i = 0; i < s.length(); i++) {
-        //     System.out.println(dp[i][0] + "  " + dp[i][1]);
-        // }
-
-        // System.out.println(dp);
         return Math.min(dp[s.length()-1][0], dp[s.length()-1][1]);
     }
 }
