@@ -18,7 +18,7 @@ class Solution {
         //     System.out.println(dp[i][0] + "  " + dp[i][1]);
         // }
 
-        System.out.println(dp);
+        // System.out.println(dp);
         return Math.min(dp[s.length()-1][0], dp[s.length()-1][1]);
     }
 }
