@@ -1,13 +1,22 @@
 class Solution {
-    public boolean canBeEqual(int[] a, int[] b) {
-    Map<Integer, Integer> map = new HashMap<>();
-    for (int i = 0; i < a.length; i++) {
-        map.put(a[i], map.getOrDefault(a[i], 0) + 1);
-        map.put(b[i], map.getOrDefault(b[i], 0) - 1);
+    public boolean canBeEqual(int[] target, int[] arr) {
+        int[] countMap = new int[1001]; // Map that holds count of ints
+
+        // Iterate through the arrays
+        for (int i = 0; i < target.length; i++) {
+            countMap[target[i]]++; // Increment count of int found in target array
+            countMap[arr[i]]--; // Decrement count of int found in arr array
+        }
+
+        // Iterate countMap
+        for (int i : countMap) {
+            // If not 0, it means target and arr do not match
+            if (i != 0) {
+                return false; // Return false
+            }
+        }
+
+        // If this point is reached, the arrays are equal
+        return true;
     }
-    for (int i : map.keySet()) {
-        if (map.get(i) != 0) return false;
-    }
-    return true;
-}
 }
