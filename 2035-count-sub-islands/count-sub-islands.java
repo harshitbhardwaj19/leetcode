@@ -30,7 +30,7 @@ class Solution {
 
         boolean sub = true;
         if (grid1[i][j] == 0) {
-            sub = false;
+            return false;
         }
         visited[i][j] = true;
 
