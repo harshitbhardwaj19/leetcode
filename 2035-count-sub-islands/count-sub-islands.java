@@ -28,7 +28,6 @@ class Solution {
             return true;
         }
 
-        boolean sub = true;
         if (grid1[i][j] == 0) {
             return false;
         }
@@ -38,6 +37,6 @@ class Solution {
         boolean b2 = helper(grid1, grid2, i, j + 1, visited);
         boolean b3 = helper(grid1, grid2, i - 1, j, visited);
         boolean b4 = helper(grid1, grid2, i, j - 1, visited); 
-        return b1 && b2 && b3 && b4 && sub;
+        return b1 && b2 && b3 && b4;
     }
 }
