@@ -19,9 +19,6 @@ class Solution {
         }
         int chunkSize = size/k;
 
-        // System.out.println(size + " "+chunkSize);
-        // System.out.println(size%k);
-
         int count = 0;
         node = head;
         for(int i = 0; i<size%k; i++){
@@ -37,7 +34,6 @@ class Solution {
             return arr;
         }
         int rem = size - (chunkSize+1)*count;
-        // System.out.println(rem);
         for(int i = 0; i<rem/chunkSize; i++){
             arr[count++] = node;
             for(int j = 0; j<chunkSize-1; j++){
