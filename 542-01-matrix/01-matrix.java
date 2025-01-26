@@ -23,25 +23,21 @@ class Solution {
             int s = arr[2];
 
             if(r-1 >=0 && nearest[r-1][c] == -1){
-                System.out.println("1");
                 nearest[r-1][c] = s+1;
                 q.add(new int[] { r-1, c, s+1 }); 
             }
 
             if(c-1 >=0 && nearest[r][c-1] == -1){
-                System.out.println("2");
                 nearest[r][c-1] = s+1;
                 q.add(new int[] { r, c-1, s+1 }); 
             }
 
             if(r+1 < m && nearest[r+1][c] == -1){
-                System.out.println("3");
                 nearest[r+1][c] = s+1;
                 q.add(new int[] { r+1, c, s+1 }); 
             }
 
             if(c+1 < n && nearest[r][c+1] == -1){
-                System.out.println("4");
                 nearest[r][c+1] = s+1;
                 q.add(new int[] { r, c+1, s+1 }); 
             }
