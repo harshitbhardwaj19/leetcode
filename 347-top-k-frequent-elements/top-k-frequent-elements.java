@@ -4,16 +4,15 @@ class Solution {
         for (int num : nums) {
             map.put(num, map.getOrDefault(num, 0) + 1);
         }
-        // System.out.println(map);
 
-        PriorityQueue<int[]> pq = new PriorityQueue<>((a, b) -> b[1] - a[1]);
+        PriorityQueue<Integer> pq = new PriorityQueue<>((a, b) -> map.get(b) - map.get(a));
         for (int key : map.keySet()) {
-            pq.add(new int[] { key, map.get(key) });
+            pq.add(key);
         }
 
         int arr[] = new int[k];
         for(int i =0; i<k; i++){
-            arr[i] = pq.poll()[0];
+            arr[i] = pq.poll();
         }
         return arr;
     }
