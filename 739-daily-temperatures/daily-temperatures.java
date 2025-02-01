@@ -4,6 +4,7 @@ class Solution {
         st.push(temp.length - 1);
         int arr[] = new int[temp.length];
         arr[temp.length - 1] = 0;
+        
         for (int i = temp.length - 2; i >= 0; i--) {
             while (st.size() > 0 && temp[i] >= temp[st.peek()]) {
                 st.pop();
