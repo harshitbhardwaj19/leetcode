@@ -13,7 +13,6 @@ class Solution {
         }
         while (s < e) {
             int mid = s + (e - s) / 2;
-            System.out.println(s + ". " + e + ". " + mid);
 
             if (nums[mid] < nums[mid + 1] && nums[mid] < nums[mid - 1]) {
                 return nums[mid];
