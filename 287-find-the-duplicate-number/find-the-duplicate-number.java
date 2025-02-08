@@ -1,14 +1,25 @@
 class Solution {
     public int findDuplicate(int[] nums) {
-        for (int i = 0; i <= nums.length; i++) {
-            int num = nums[i];
-            if (nums[Math.abs(num)] < 0) {
-                return Math.abs(num);
-            }
+        for (int i = 1; i < nums.length; i++) {
+            while (nums[i] != i) {
 
-            nums[Math.abs(num)] = nums[Math.abs(num)] * -1;
+                // System.out.println(i);
+
+                // for (int j = 0; j < nums.length; j++) {
+                //     System.out.print(nums[j] + " , ");   
+                // }
+
+                // System.out.println();
+                int temp = nums[i];
+                int temp2 = nums[nums[i]];
+                if(temp == temp2){
+                    return temp;
+                }
+                nums[i] = temp2;
+                nums[temp] = temp;
+            }
         }
 
-        return -1;
+        return nums[0];
     }
 }
