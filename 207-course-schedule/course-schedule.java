@@ -1,34 +1,35 @@
 class Solution {
-    public boolean canFinish(int n, int[][] prereq) {
-        int in[] = new int[n];
-        int graph[][] = new int[n][n];
-        for (int arr[] : prereq) {
-            in[arr[0]]++;
-            graph[arr[1]][arr[0]] = 1;
+    public boolean canFinish(int num, int[][] pre) {
+        ArrayList<Integer> arr[] = new ArrayList[num];
+        int in[] = new int[num];
+        for (int i = 0; i < num; i++) {
+            arr[i] = new ArrayList<Integer>();
         }
 
-        Queue<Integer> pq = new LinkedList<>();
-        for (int i = 0; i < n; i++) {
-            // System.out.println(in[i]);
+        for (int i = 0; i < pre.length; i++) {
+            arr[pre[i][1]].add(pre[i][0]);
+            in[pre[i][0]]++;
+        }
+
+        Queue<Integer> q = new LinkedList<>();
+        for (int i = 0; i < num; i++) {
             if (in[i] == 0) {
-                pq.add(i);
+                q.add(i);
             }
         }
 
-        int count = 0;
-        while (pq.size() > 0) {
-            count++;
-            int curr = pq.poll();
-            int arr[] = graph[curr];
-            for (int i = 0; i < n; i++) {
-                if (graph[curr][i] == 1) {
-                    in[i]--;
-                    if (in[i] == 0) {
-                        pq.add(i);
-                    }
+        int total=0;
+
+        while (q.size() > 0) {
+            int x = q.poll();
+            total++;
+            for (int i = 0; i < arr[x].size(); i++) {
+                in[arr[x].get(i)]--;
+                if (in[arr[x].get(i)] == 0) {
+                    q.add(arr[x].get(i));
                 }
             }
         }
-        return count == n;
+        return total==num;
     }
 }
