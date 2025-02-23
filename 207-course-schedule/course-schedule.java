@@ -7,7 +7,7 @@ class Solution {
             graph[arr[1]][arr[0]] = 1;
         }
 
-        PriorityQueue<Integer> pq = new PriorityQueue<>();
+        Queue<Integer> pq = new LinkedList<>();
         for (int i = 0; i < n; i++) {
             // System.out.println(in[i]);
             if (in[i] == 0) {
