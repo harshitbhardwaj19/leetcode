@@ -9,9 +9,9 @@ class Solution {
         }
         String max = numStr.replace(first, '9');
         String min = numStr.replace(numStr.charAt(0), '0');
-        System.out.println(first);
-        System.out.println(max);
-        System.out.println(min);
+        // System.out.println(first);
+        // System.out.println(max);
+        // System.out.println(min);
         return Integer.parseInt(max) - Integer.parseInt(min);
     }
 }
