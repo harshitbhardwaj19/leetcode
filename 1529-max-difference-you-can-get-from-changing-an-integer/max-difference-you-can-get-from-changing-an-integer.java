@@ -16,9 +16,9 @@ class Solution {
             pos++;
         }
         String min = firstMin == numStr.charAt(0) ? numStr.replace(firstMin, '1') : numStr.replace(firstMin, '0');
-        System.out.println(first);
-        System.out.println(max);
-        System.out.println(min);
+        // System.out.println(first);
+        // System.out.println(max);
+        // System.out.println(min);
         return Integer.parseInt(max) - Integer.parseInt(min);
     }
 }
