@@ -7,7 +7,7 @@ class Solution {
             minCommon = Math.min(minCommon, fruit);
             map1.put(fruit, 1 + map1.getOrDefault(fruit, 0));
         }
-        System.out.println(map1);
+        // System.out.println(map1);
         for (int fruit : basket2) {
             minCommon = Math.min(minCommon, fruit);
             if (map1.containsKey(fruit)) {
@@ -19,9 +19,9 @@ class Solution {
                 map2.put(fruit, 1 + map2.getOrDefault(fruit, 0));
             }
         }
-        System.out.println("********************");
-        System.out.println(map1);
-        System.out.println(map2);
+        // System.out.println("********************");
+        // System.out.println(map1);
+        // System.out.println(map2);
 
         int arr1[][] = new int[map1.size()][2];
         int arr2[][] = new int[map2.size()][2];
@@ -49,15 +49,15 @@ class Solution {
         Arrays.sort(arr1, (a, b) -> a[0] - b[0]);
         Arrays.sort(arr2, (a, b) -> a[0] - b[0]);
 
-        System.out.println("arr1:");
-        for (int[] row : arr1) {
-            System.out.println(Arrays.toString(row));
-        }
+        // System.out.println("arr1:");
+        // for (int[] row : arr1) {
+        //     System.out.println(Arrays.toString(row));
+        // }
 
-        System.out.println("arr2:");
-        for (int[] row : arr2) {
-            System.out.println(Arrays.toString(row));
-        }
+        // System.out.println("arr2:");
+        // for (int[] row : arr2) {
+        //     System.out.println(Arrays.toString(row));
+        // }
 
         int s1 = 0;
         int s2 = 0;
