@@ -9,7 +9,6 @@ class Solution {
                 break;
             }
             n = n>>1;
-            System.out.println(n);
         }
         if (n == 1 && count % 2 == 1) {
             return true;
