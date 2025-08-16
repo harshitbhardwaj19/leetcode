@@ -8,9 +8,7 @@ class Solution {
                 break;
             }
         }
-        for (int i = 0; i < arr.length; i++) {
-            str += arr[i];
-        }
-        return Integer.parseInt(str);
+
+        return Integer.parseInt(new String(arr));
     }
 }
