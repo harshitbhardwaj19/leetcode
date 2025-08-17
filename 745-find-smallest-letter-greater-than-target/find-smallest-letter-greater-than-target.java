@@ -5,12 +5,12 @@ class Solution {
         if (target >= letters[e]) {
             return letters[s];
         }
-        while (s < e) {
+        while (s <= e) {
             int m = s + (e - s) / 2;
             if (target >= letters[m]) {
                 s = m+1;
             } else {
-                e = m;
+                e = m-1;
             }
         }
         return letters[s];
