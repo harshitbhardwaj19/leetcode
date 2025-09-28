@@ -11,13 +11,7 @@ class Solution {
     }
 
     public boolean possible(int a, int b, int c) {
-        if (a + b <= c) {
-            return false;
-        }
         if (c + b <= a) {
-            return false;
-        }
-        if (a + c <= b) {
             return false;
         }
         return true;
