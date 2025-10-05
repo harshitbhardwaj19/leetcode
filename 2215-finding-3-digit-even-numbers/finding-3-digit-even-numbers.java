@@ -18,7 +18,6 @@ class Solution {
                 }
             }
         }
-        System.out.println(set);
         int arr[] = new int[set.size()];
         int i =0;
         for (Integer num : set) {
