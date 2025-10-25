@@ -6,7 +6,6 @@ class Solution {
         int ans = 1;
         while(min<=max){
             int mid = (min+max)/2;
-            // System.out.println(max+". "+ mid +". "+ min);
             if(hasIncreasingSubarrays(nums,mid)){
                 ans = mid;
                 min = mid+1;
